@@ -5,7 +5,7 @@ edition = "2021"
 authors = ["Ahmad Bedair <ahmaddev992@gmail.com>"]
 description = "Majlisna Bot - Arabic smart discussion bot powered by AI and Discord voice integration"
 license = "MIT"
-repository = "https://github.com/Ahmaddev992/fluffy-enigma"
+repository = "https://github.com/ahmaddev992/fluffy-enigma"
 readme = "README.md"
 
 # ================
