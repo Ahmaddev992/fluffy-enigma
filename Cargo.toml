@@ -8,64 +8,31 @@ license = "MIT"
 repository = "https://github.com/ahmaddev992/fluffy-enigma"
 readme = "README.md"
 
-# ================
-# BUILD SETTINGS
-# ================
 [profile.release]
 opt-level = 3
 lto = true
 codegen-units = 1
 panic = "abort"
 
-# ================
-# DEPENDENCIES
-# ================
-
 [dependencies]
-# Discord API Library
-serenity = { version = "0.11", features = ["framework", "standard_framework", "client", "gateway", "voice"] }
-
-# Async runtime for Discord bot
+serenity = { version = "0.11", features = ["framework", "standard_framework", "client", "gateway", "voice"], optional = true }
+songbird = { version = "0.4", optional = true }
+async-openai = { version = "0.19", optional = true }
 tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
-
-# Environment variable management (.env)
 dotenv = "0.15"
-
-# For making HTTP requests (API/Webhook calls)
 reqwest = { version = "0.11", features = ["json", "multipart", "stream"] }
-
-# For JSON parsing
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
-
-# Logging for debugging
 log = "0.4"
 env_logger = "0.10"
-
-# For AI integration (optional)
-async-openai = "0.19"
-
-# Audio and voice features
-songbird = "0.4"
-
-# For error handling
 anyhow = "1.0"
-
-# For reading and writing local files
 tokio-stream = "0.1"
 
-# ================
-# DEV DEPENDENCIES
-# ================
 [dev-dependencies]
 tokio-test = "0.4"
 
-# ================
-# OPTIONAL FEATURES
-# ================
 [features]
 default = ["discord", "voice", "ai"]
-
 discord = ["serenity"]
 voice = ["songbird"]
 ai = ["async-openai"]
